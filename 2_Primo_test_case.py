@@ -23,12 +23,46 @@ print(tasto_di_ricerca)
 tasto_di_ricerca.click()
 tasto_di_ricerca.send_keys("pochyxi")
 
-ActionChains(driver)\
-        .key_down(Keys.ENTER)\
-        .key_up(Keys.ENTER)\
-        .perform()
+# DIGITARE INPUT DA TASTIERA
+ActionChains(driver) \
+    .key_down(Keys.ENTER) \
+    .key_up(Keys.ENTER) \
+    .perform()
 
+# Titolo della pagina in cui ci troviamo attualmente
+titolo_pagina = driver.title
+print(titolo_pagina)
 
+# La stringa che ci aspettiamo dal titolo pagina
+exp_title = 'Search · pochyxi · GitHub'
+
+# condizione per cui se il titolo è corretto il test è passato
+if exp_title == titolo_pagina:
+    print("Test di ricerca passato")
+
+users = driver.find_element(By.CSS_SELECTOR, "a[ href = '/search?q=pochyxi&type=users' ]")
+users.click()
+
+nome_utente_flag = True
+while nome_utente_flag:
+    try:
+        nome_utente = driver.find_element(By.CSS_SELECTOR, "a[href=\"/Pochyxi\"]")
+        nome_utente_flag = False
+        nome_utente.click()
+    except:
+        print("elemento non trovato")
+
+repositories_pochyxi = driver.find_element(By.CSS_SELECTOR, "a[href=\"/Pochyxi?tab=repositories\"]")
+repositories_pochyxi.click()
+
+reposiry_PYTHON_SELENIUM_STUDIO = driver.find_element(By.CSS_SELECTOR, "a[href=\"/Pochyxi/PYTHON_SELENIUM_STUDIO\"]")
+reposiry_PYTHON_SELENIUM_STUDIO.click()
+
+bottone_codice = driver.find_element(By.CSS_SELECTOR, "summary.btn-primary.btn")
+bottone_codice.click()
+
+dowload_questo_progetto = driver.find_element(By.CSS_SELECTOR, "#local-panel > ul > li:nth-child(3) > a")
+dowload_questo_progetto.click()
 
 # .close() serve a chiudere il browser una volta effettuate tutte le automazioni desiderate
 driver.close()
