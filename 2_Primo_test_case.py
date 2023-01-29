@@ -100,11 +100,6 @@ repositories_pochyxi.click()
 reposiry_PYTHON_SELENIUM_STUDIO = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "a[href=\"/Pochyxi/PYTHON_SELENIUM_STUDIO\"]")))
 reposiry_PYTHON_SELENIUM_STUDIO.click()
 
-bottone_codice = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "summary.btn-primary.btn")))
-bottone_codice.click()
-
-dowload_questo_progetto = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#local-panel > ul > li:nth-child(3) > a")))
-dowload_questo_progetto.click()
 
 time.sleep(10)
 
