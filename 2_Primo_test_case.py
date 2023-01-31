@@ -32,6 +32,9 @@ driver = webdriver.Chrome(ChromeDriverManager().install())
 # .get(url) ci porterà alla pagina desiderata
 driver.get("https://github.com/")
 
+# maximize_window() allargherà la finestra del browser al massimo altrimenti resa piccola di default
+driver.maximize_window()
+
 selettore_classe = ".form-control.js-site-search-focus.header-search-input"
 selettore_attributi = "input[class = 'form-control js-site-search-focus header-search-input jump-to-field js-jump-to-field']"
 
